@@ -6,16 +6,16 @@ Dessa uppgifter var givna på förmiddagen och förväntades vara klara i slutet
 ### Beskrivning
 Skapa ett program som hanterar information om anställda på ett företag.
 ### Krav
-* Skapa ArrayList för namn, löner och avdelningar
-* Implementera följande metoder:
-  * `läggTillAnställd(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar, String nyttNamn, double lön, String avdelning)`
-  * `visaAllaAnställda(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar)`
-  * `sökAnställd(ArrayList<String> namn, String sökNamn)`
-  * `genomsnittslön(ArrayList<Double> löner)`
-  * `högstaLön(ArrayList<Double> löner)`
-  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)`
-* Skapa en meny i main som låter användaren välja mellan funktionerna
-* Programmet ska fortsätta tills användaren väljer att avsluta
+* Skapa ArrayList för namn, löner och avdelningar ✅
+* Implementera följande metoder: ❌
+  * `läggTillAnställd(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar, String nyttNamn, double lön, String avdelning)` ✅
+  * `visaAllaAnställda(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar)` ✅
+  * `sökAnställd(ArrayList<String> namn, String sökNamn)` ✅
+  * `genomsnittslön(ArrayList<Double> löner)` ✅
+  * `högstaLön(ArrayList<Double> löner)` ✅
+  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)` ❌
+* Skapa en meny i main som låter användaren välja mellan funktionerna ✅
+* Programmet ska fortsätta tills användaren väljer att avsluta ✅
 ## Uppgift 2: Recepthanterare ❌
 ### Beskrivning
 Bygg ett system för att hantera matrecept och ingredienser.

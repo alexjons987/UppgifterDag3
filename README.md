@@ -1,21 +1,23 @@
 # Day 3 assignments
-These assignments were given in the morning and was expected to be finished by the end of the day.  Assignments are written in english out of habit.
+These assignments were given in the morning, no expectations were given (as these assignments were given alongside a
+group assignment).  Assignments are written in english out of habit.
 
-Dessa uppgifter var givna på förmiddagen och förväntades vara klara i slutet av dagen. Uppgifterna är skrivna på engelska, vanesak.
+Dessa uppgifter var givna på förmiddagen, det fanns inga förväntningar på att dessa skulle göras klart (då vi fick
+grupparbete samtidigt. Uppgifterna är skrivna på engelska, vanesak.
 ## Uppgift 1: Personalregister ✅
 ### Beskrivning
 Skapa ett program som hanterar information om anställda på ett företag.
 ### Krav
-* Skapa ArrayList för namn, löner och avdelningar ✅
-* Implementera följande metoder: ✅
-  * `läggTillAnställd(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar, String nyttNamn, double lön, String avdelning)` ✅
-  * `visaAllaAnställda(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar)` ✅
-  * `sökAnställd(ArrayList<String> namn, String sökNamn)` ✅
-  * `genomsnittslön(ArrayList<Double> löner)` ✅
-  * `högstaLön(ArrayList<Double> löner)` ✅
-  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)` ✅
-* Skapa en meny i main som låter användaren välja mellan funktionerna ✅
-* Programmet ska fortsätta tills användaren väljer att avsluta ✅
+* Skapa ArrayList för namn, löner och avdelningar
+* Implementera följande metoder:
+  * `läggTillAnställd(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar, String nyttNamn, double lön, String avdelning)`
+  * `visaAllaAnställda(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar)`
+  * `sökAnställd(ArrayList<String> namn, String sökNamn)`
+  * `genomsnittslön(ArrayList<Double> löner)`
+  * `högstaLön(ArrayList<Double> löner)`
+  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)`
+* Skapa en meny i main som låter användaren välja mellan funktionerna
+* Programmet ska fortsätta tills användaren väljer att avsluta
 ## Uppgift 2: Recepthanterare ❌
 ### Beskrivning
 Bygg ett system för att hantera matrecept och ingredienser.

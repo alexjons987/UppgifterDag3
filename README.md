@@ -20,16 +20,16 @@ Skapa ett program som hanterar information om anställda på ett företag.
 ### Beskrivning
 Bygg ett system för att hantera matrecept och ingredienser.
 ### Krav
-* Skapa ArrayList för receptnamn, ingredienser och portioner
-* Implementera följande metoder:
-  * `läggTillRecept(ArrayList<String> receptnamn, ArrayList<String> ingredienser, ArrayList<Integer> portioner, String namn, String ingrediens, int portion)`
-  * `visaAllaRecept(ArrayList<String> receptnamn, ArrayList<String> ingredienser, ArrayList<Integer> portioner)`
-  * `sökRecept(ArrayList<String> receptnamn, String sökterm)`
-  * `receptMedIngrediens(ArrayList<String> receptnamn, ArrayList<String> ingredienser, String ingrediens)`
-  * `skalaRecept(ArrayList<Integer> portioner, int receptIndex, int nyaPortioner)`
-  * `antalRecept(ArrayList<String> receptnamn)`
-* Användaren ska kunna söka recept baserat på ingredienser
-* Möjlighet att skala upp/ner antal portioner för ett recept
+* Skapa ArrayList för receptnamn, ingredienser och portioner ✅
+* Implementera följande metoder: ❌
+  * `läggTillRecept(ArrayList<String> receptnamn, ArrayList<String> ingredienser, ArrayList<Integer> portioner, String namn, String ingrediens, int portion)` ✅
+  * `visaAllaRecept(ArrayList<String> receptnamn, ArrayList<String> ingredienser, ArrayList<Integer> portioner)` ✅
+  * `sökRecept(ArrayList<String> receptnamn, String sökterm)` ✅
+  * `receptMedIngrediens(ArrayList<String> receptnamn, ArrayList<String> ingredienser, String ingrediens)` ✅
+  * `skalaRecept(ArrayList<Integer> portioner, int receptIndex, int nyaPortioner)` ❌
+  * `antalRecept(ArrayList<String> receptnamn)` ✅
+* Användaren ska kunna söka recept baserat på ingredienser ✅
+* Möjlighet att skala upp/ner antal portioner för ett recept ❌
 ## Uppgift 3: Filmbibliotek ❌
 ### Beskrivning
 Skapa ett program för att hantera en samling filmer med betyg och genrer.

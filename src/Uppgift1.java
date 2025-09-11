@@ -31,10 +31,10 @@ public class Uppgift1 {
                 System.out.println("3. Search employee");
                 System.out.println("4. Show average salary");
                 System.out.println("5. Show highest salary");
-                System.out.println("5. Check department employee count");
+                System.out.println("6. Check department employee count");
                 System.out.println("0. Exit");
                 System.out.print(": ");
-            } while ((menuChoice = scanner.nextInt()) < 0 || menuChoice > 5);
+            } while ((menuChoice = scanner.nextInt()) < 0 || menuChoice > 6);
 
             switch (menuChoice) {
                 case 0:
@@ -77,6 +77,14 @@ public class Uppgift1 {
                     break;
                 case 5: // Show the highest salary
                     System.out.printf("Highest salary: %.2f\n", getHighestSalary(staffSalaries));
+                    break; // Check department employee count
+                case 6:
+                    String search;
+                    do {
+                        System.out.print("Enter department: ");
+                    } while ((search = scanner.next()).isEmpty());
+                    int depCount = employeesInDepartment(staffDepartments, search);
+                    System.out.printf("Found %d employees in department \"%s\"", depCount, search);
                     break;
             }
         }
@@ -139,6 +147,10 @@ public class Uppgift1 {
             ArrayList<String> staffDepartments,
             String department
     ) {
-        return -1;
+        int employeeCountInDepartment = 0;
+        for (var dep : staffDepartments)
+            if (dep.equals(department))
+                employeeCountInDepartment++;
+        return employeeCountInDepartment;
     }
 }

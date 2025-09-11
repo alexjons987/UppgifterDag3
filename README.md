@@ -2,18 +2,18 @@
 These assignments were given in the morning and was expected to be finished by the end of the day.  Assignments are written in english out of habit.
 
 Dessa uppgifter var givna på förmiddagen och förväntades vara klara i slutet av dagen. Uppgifterna är skrivna på engelska, vanesak.
-## Uppgift 1: Personalregister ❌
+## Uppgift 1: Personalregister ✅
 ### Beskrivning
 Skapa ett program som hanterar information om anställda på ett företag.
 ### Krav
 * Skapa ArrayList för namn, löner och avdelningar ✅
-* Implementera följande metoder: ❌
+* Implementera följande metoder: ✅
   * `läggTillAnställd(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar, String nyttNamn, double lön, String avdelning)` ✅
   * `visaAllaAnställda(ArrayList<String> namn, ArrayList<Double> löner, ArrayList<String> avdelningar)` ✅
   * `sökAnställd(ArrayList<String> namn, String sökNamn)` ✅
   * `genomsnittslön(ArrayList<Double> löner)` ✅
   * `högstaLön(ArrayList<Double> löner)` ✅
-  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)` ❌
+  * `antalPerAvdelning(ArrayList<String> avdelningar, String avdelning)` ✅
 * Skapa en meny i main som låter användaren välja mellan funktionerna ✅
 * Programmet ska fortsätta tills användaren väljer att avsluta ✅
 ## Uppgift 2: Recepthanterare ❌

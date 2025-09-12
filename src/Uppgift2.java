@@ -15,11 +15,11 @@ public class Uppgift2 {
         ArrayList<Integer> recipePortions = new ArrayList<Integer>();
 
         // Add some recipes
-        addRecipe(recipeNames, recipeIngredients, recipePortions, "Asian Zing Chicken Noodles", "Noodles Chicken Chili Soy Ginger", 1);
-        addRecipe(recipeNames, recipeIngredients, recipePortions, "Pesto Tortellini Bake", "Pasta Eggs Pesto Sun-dried Tomato", 4);
-        addRecipe(recipeNames, recipeIngredients, recipePortions, "Italian Pasta Salad", "Capers White beans Chickpeas Shredded chicken", 4);
-        addRecipe(recipeNames, recipeIngredients, recipePortions, "Turkey Taco Bowls", "Turkey Rice Lettuce Onion Tofu", 4);
-        addRecipe(recipeNames, recipeIngredients, recipePortions, "Lemony Zucchini Pasta", "Pasta Eggs Zucchini Chicken", 4);
+        addRecipe(recipeNames, recipeIngredients, recipePortions, "Asian Zing Chicken Noodles", "Noodles Chicken Chili Soy Ginger", random.nextInt(1, 5));
+        addRecipe(recipeNames, recipeIngredients, recipePortions, "Pesto Tortellini Bake", "Pasta Eggs Pesto Sun-dried Tomato", random.nextInt(1, 5));
+        addRecipe(recipeNames, recipeIngredients, recipePortions, "Italian Pasta Salad", "Capers White beans Chickpeas Shredded chicken", random.nextInt(1, 5));
+        addRecipe(recipeNames, recipeIngredients, recipePortions, "Turkey Taco Bowls", "Turkey Rice Lettuce Onion Tofu", random.nextInt(1, 5));
+        addRecipe(recipeNames, recipeIngredients, recipePortions, "Lemony Zucchini Pasta", "Pasta Eggs Zucchini Chicken", random.nextInt(1, 5));
 
         // Main menu-loop
         boolean flag = true;
@@ -34,6 +34,8 @@ public class Uppgift2 {
                 System.out.print(": ");
             } while ((menuChoice = scanner.nextInt()) < 0 || menuChoice > 4);
 
+            int recipeChoice;
+            int[] searchResult;
             switch (menuChoice) {
                 case 0:
                     flag = false;
@@ -60,14 +62,33 @@ public class Uppgift2 {
                 case 3: // Search recipe by name
                     System.out.print("Search recipe by ingredients by name: ");
                     String searchName = scanner.next();
-                    searchRecipe(recipeNames, searchName);
+                    searchResult = searchRecipe(recipeNames, searchName);
+
+                    do {
+                        System.out.print("Select recipe to change (0 = exit): ");
+                    } while ((recipeChoice = scanner.nextInt()) < 0 || recipeChoice > searchResult.length);
+
+                    if (recipeChoice == 0)
+                        break;
+
+                    System.out.print("Set new portions for chosen recipe: ");
+                    changeRecipePortions(recipePortions, searchResult[recipeChoice - 1], scanner.nextInt());
                     break;
                 case 4: // Search recipe by ingredients
                     System.out.print("Search recipe by ingredients: ");
                     String searchIngredients = scanner.next();
-                    searchRecipeByIngredients(recipeNames, recipeIngredients, searchIngredients);
-                    break;
+                    searchResult = searchRecipeByIngredients(recipeNames, recipeIngredients, searchIngredients);
 
+                    do {
+                        System.out.print("Select recipe to change (0 = exit): ");
+                    } while ((recipeChoice = scanner.nextInt()) < 0 || recipeChoice > searchResult.length);
+
+                    if (recipeChoice == 0)
+                        break;
+
+                    System.out.print("Set new portions for chosen recipe: ");
+                    changeRecipePortions(recipePortions, searchResult[recipeChoice - 1], scanner.nextInt());
+                    break;
             }
         }
     }
@@ -103,29 +124,47 @@ public class Uppgift2 {
         }
     }
 
-    public static void searchRecipe(
+    public static int[] searchRecipe(
             ArrayList<String> recipeNames,
             String searchTerm
     ) {
+        ArrayList<Integer> foundRecipeIndexes = new ArrayList<Integer>();
+
         System.out.printf("Recipe(s) matching search term \"%s\":\n", searchTerm);
+        int printIndex = 1;
         for (int i = 0; i < recipeNames.size(); i++)
-            if (recipeNames.get(i).contains(searchTerm))
-                System.out.printf("%s\n", recipeNames.get(i));
+            if (recipeNames.get(i).contains(searchTerm)) {
+                System.out.printf("%d. %s\n", printIndex, recipeNames.get(i));
+                foundRecipeIndexes.add(i);
+                printIndex++;
+            }
+
+        return foundRecipeIndexes.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public static void searchRecipeByIngredients(
+    public static int[] searchRecipeByIngredients(
             ArrayList<String> recipeNames,
             ArrayList<String> recipeIngredients,
             String ingrediens
     ) {
+        ArrayList<Integer> foundRecipeIndexes = new ArrayList<Integer>();
+
         System.out.printf("Recipe(s) matching ingredient search term \"%s\":\n", ingrediens);
+        int printIndex = 1;
         for (int i = 0; i < recipeNames.size(); i++)
-            if (recipeIngredients.get(i).contains(ingrediens))
-                System.out.printf("%s - %s\n", recipeNames.get(i), recipeIngredients.get(i));
+            if (recipeIngredients.get(i).contains(ingrediens)) {
+                System.out.printf("%d. %s - %s\n", printIndex, recipeNames.get(i), recipeIngredients.get(i));
+                foundRecipeIndexes.add(i);
+                printIndex++;
+            }
+
+        return foundRecipeIndexes.stream().mapToInt(Integer::intValue).toArray();
     }
 
-    public static void changeRecipePortions(ArrayList<Integer> recipePortions, int receptIndex, int nyaPortioner) {
-
+    public static void changeRecipePortions(ArrayList<Integer> recipePortions, int recipeIndex, int newPortions) {
+        int prevPortions = recipePortions.get(recipeIndex);
+        recipePortions.set(recipeIndex, newPortions);
+        System.out.printf("Portions changed %d -> %d\n", prevPortions, newPortions);
     }
 
     public static int getRecipeCount(ArrayList<String> recipeNames) {
